@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import './styles.scss';
 
-function Card() {
+function Card(props) {
+  const { pokemonData } = props;
   return (
-    <div>
-      This is: Card
-    </div>
+    <Fragment>
+      <ul className='list__data'>
+        {pokemonData.map((pokemon, id) => {
+          return <li className='list__li' key={id}>{pokemon.name}</li>;
+        })}
+      </ul>
+    </Fragment>
   );
 }
 

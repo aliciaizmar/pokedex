@@ -2,11 +2,11 @@ import React from 'react';
 import './styles.scss';
 import Card from '../Card';
 
-function CardList() {
+function CardList(props) {
+  const { pokemonData } = props;
   return (
-    <div >
-      This is: CardList
-      <Card/>
+    <div>
+      <Card pokemonData={pokemonData} />
     </div>
   );
 }
