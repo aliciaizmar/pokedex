@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './styles.scss';
 import CardList from '../CardList';
 import Filter from '../Filter';
@@ -19,17 +19,14 @@ class App extends React.Component {
 
   fetchPokemons() {
     fetchService().then(data =>
-      data.results.map(item => {
+      data.results.forEach(item => {
         const newUrl = item.url;
         fetch(newUrl)
           .then(response => response.json())
           .then(newData => {
             this.setState(prevState => {
               return {
-                pokemonData: [
-                  ...prevState.pokemonData,
-                   newData
-                ],
+                pokemonData: [...prevState.pokemonData, newData],
                 isFetching: false
               };
             });
@@ -72,13 +69,18 @@ class App extends React.Component {
         {isFetching ? (
           <div className='loading'>Loading...</div>
         ) : (
-          <div>
-            <Filter
-              searchName={searchName}
-              filterByName={this.handlerSearchByName}
-            />
-            <CardList pokemonData={this.filterData()} />
-          </div>
+          <Fragment>
+            <nav className='main__header hidden'>
+              <h1>Pokemon Characters</h1>
+            </nav>
+            <main className='main__content'>
+              <Filter
+                searchName={searchName}
+                filterByName={this.handlerSearchByName}
+              />
+              <CardList pokemonData={this.filterData()} />
+            </main>
+          </Fragment>
         )}
       </div>
     );
