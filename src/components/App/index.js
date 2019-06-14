@@ -10,23 +10,16 @@ class App extends React.Component {
 
     this.state = {
       pokemonData: [],
-      isFetching: true
+      isFetching: true,
+      searchName: ''
     };
+    this.filterData = this.filterData.bind(this);
+    this.handlerSearchByName = this.handlerSearchByName.bind(this);
   }
-
-  // fetchPokemons() {
-  //   fetchService().then(data => {
-  //     this.setState({
-  //       pokemonData: data.results,
-  //       isFetching: false
-  //     });
-  //   });
-
-  // }
 
   fetchPokemons() {
     fetchService().then(data =>
-      data.results.map(item => { 
+      data.results.map(item => {
         const newUrl = item.url;
         fetch(newUrl)
           .then(response => response.json())
@@ -35,32 +28,56 @@ class App extends React.Component {
               return {
                 pokemonData: [
                   ...prevState.pokemonData,
-                  newData
+                   newData
                 ],
                 isFetching: false
-              }
+              };
             });
           });
       })
     );
   }
- 
+
+  handlerSearchByName(event) {
+    const { value } = event.target;
+    this.setState({
+      searchName: value
+    });
+  }
+
+  filterData() {
+    const { pokemonData, searchName } = this.state;
+    return pokemonData
+      .filter(item => {
+        return searchName.length >= 3
+          ? item.name.toLowerCase().includes(searchName.toLowerCase())
+          : item.name;
+      })
+      .filter(item => {
+        return item.id;
+      })
+      .sort((a, b) => {
+        return a.id - b.id;
+      });
+  }
+
   componentDidMount() {
     this.fetchPokemons();
   }
 
   render() {
-    const { isFetching, pokemonData } = this.state;
-
+    const { isFetching, searchName } = this.state;
     return (
       <div className='App'>
         {isFetching ? (
           <div className='loading'>Loading...</div>
         ) : (
           <div>
-            <p>This is: app </p>
-            <CardList pokemonData={pokemonData} />
-            <Filter />
+            <Filter
+              searchName={searchName}
+              filterByName={this.handlerSearchByName}
+            />
+            <CardList pokemonData={this.filterData()} />
           </div>
         )}
       </div>
