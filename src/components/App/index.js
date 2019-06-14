@@ -1,7 +1,8 @@
 import React from 'react';
-import './App.scss';
-import CardList from './components/CardList';
-import Filter from './components/Filter';
+import './styles.scss';
+import CardList from '../CardList';
+import Filter from '../Filter';
+import fetchService from "../../services/fetchService";
 
 function App() {
   return (

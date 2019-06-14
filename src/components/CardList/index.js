@@ -1,6 +1,6 @@
 import React from 'react';
-import './CardList.scss';
-import Card from './Card';
+import './styles.scss';
+import Card from '../Card';
 
 function CardList() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Filter.scss';
+import './styles.scss';
 
 function Filter() {
   return (
