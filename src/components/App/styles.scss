@@ -6,3 +6,17 @@
 .main__content {
   margin: 50px 0;
 }
+.loading {
+  margin-top: 20px;
+}
+@media all and (min-width: 768px) {
+  .App {
+    width: auto;
+    max-width: 600px;
+  }
+}
+@media all and (min-width: 1000px) {
+  .App {
+    max-width: 1000px;
+  }
+}

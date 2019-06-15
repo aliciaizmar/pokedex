@@ -26,11 +26,7 @@ class App extends React.Component {
           .then(newData => {
             this.setState(prevState => {
               return {
-                pokemonData: [
-                  ...prevState.pokemonData, 
-                  newData
-                ],
-
+                pokemonData: [...prevState.pokemonData, newData],
                 isFetching: false
               };
             });
@@ -74,6 +70,10 @@ class App extends React.Component {
           <div className='loading'>Loading...</div>
         ) : (
           <Fragment>
+            <div className="square left-top"></div>
+            <div className="square right-top"></div>
+            <div className="circle left-bottom"></div>
+            <div className="circle right-bottom"></div>
             <nav className='main__header hidden'>
               <h1>Pokemon Characters</h1>
             </nav>

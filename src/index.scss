@@ -4,12 +4,18 @@
   margin: 0;
   box-sizing: border-box;
 }
+#root {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
 ul,
 li {
   list-style: none;
   list-style-type: none;
 }
-a, img {
+a,
+img {
   display: block;
 }
 .hidden {
@@ -21,8 +27,45 @@ body {
   font-family: $primaryFont;
   font-size: 16px;
   font-weight: normal;
-  position: relative;
-  min-height: 100vh;
   line-height: 1.4;
   background: $colorYellowSun;
+  color: $colorText;
+  min-height: 100vh;
+}
+.square {
+  background: $colorDarkBatman;
+  width: 200px;
+  height: 200px;
+}
+.left-top {
+  position: absolute;
+  left: -170px;
+  top: -120px;
+  z-index: -1;
+  transform: rotate(-45deg);
+}
+.right-top {
+  position: absolute;
+  right: -170px;
+  top: -120px;
+  z-index: -1;
+  transform: rotate(-45deg);
+}
+.circle {
+  border-radius: 50%;
+  background: $colorRedApple;
+  width: 200px;
+  height: 200px;
+}
+.left-bottom {
+  position: absolute;
+  left: -120px;
+  bottom: -70px;
+  z-index: -1;
+}
+.right-bottom {
+  position: absolute;
+  right: -120px;
+  bottom: -70px;
+  z-index: -1;
 }

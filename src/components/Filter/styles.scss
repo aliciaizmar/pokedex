@@ -4,6 +4,11 @@
   padding: 10px 0;
   width: 100%;
   box-shadow: 1px 1px 10px $colorGreyStone;
-  border:0;
+  border: 0;
   margin-bottom: 30px;
+}
+@media all and (min-width: 768px) {
+  .form__input {
+    width: 570px;
+  }
 }

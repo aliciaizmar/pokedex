@@ -48,4 +48,28 @@
     text-transform: uppercase;
     font-size: 12px;
   }
+  @media all and (min-width: 768px) {
+    &__data {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 25px;
+    }
+    &__li {
+      margin-bottom: 0;
+    }
+  }
+
+  @media all and (min-width: 1000px) {
+    &__data {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}
+.nouser {
+  font-size: 14px;
+  box-shadow: 1px 1px 10px $colorGreyStone;
+  background: $colorGreyLight;
+  padding: 20px 0;
 }
