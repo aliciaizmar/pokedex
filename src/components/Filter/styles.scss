@@ -1,0 +1,9 @@
+@import '../../stylesheets/variables';
+.form__input {
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  box-shadow: 1px 1px 10px $colorGreyStone;
+  border:0;
+  margin-bottom: 30px;
+}

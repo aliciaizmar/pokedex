@@ -26,7 +26,11 @@ class App extends React.Component {
           .then(newData => {
             this.setState(prevState => {
               return {
-                pokemonData: [...prevState.pokemonData, newData],
+                pokemonData: [
+                  ...prevState.pokemonData, 
+                  newData
+                ],
+
                 isFetching: false
               };
             });
