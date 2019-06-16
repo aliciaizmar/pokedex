@@ -13,8 +13,6 @@ class App extends React.Component {
       isFetching: true,
       searchName: ''
     };
-    this.filterData = this.filterData.bind(this);
-    this.handlerSearchByName = this.handlerSearchByName.bind(this);
   }
 
   fetchPokemons() {
@@ -35,14 +33,14 @@ class App extends React.Component {
     );
   }
 
-  handlerSearchByName(event) {
+  handlerSearchByName = event => {
     const { value } = event.target;
     this.setState({
       searchName: value
     });
-  }
+  };
 
-  filterData() {
+  filterData = () => {
     const { pokemonData, searchName } = this.state;
     return pokemonData
       .filter(item => {
@@ -50,13 +48,10 @@ class App extends React.Component {
           ? item.name.toLowerCase().includes(searchName.toLowerCase())
           : item.name;
       })
-      .filter(item => {
-        return item.id;
-      })
       .sort((a, b) => {
         return a.id - b.id;
       });
-  }
+  };
 
   componentDidMount() {
     this.fetchPokemons();
@@ -70,10 +65,10 @@ class App extends React.Component {
           <div className='loading'>Loading...</div>
         ) : (
           <Fragment>
-            <div className="square left-top"></div>
-            <div className="square right-top"></div>
-            <div className="circle left-bottom"></div>
-            <div className="circle right-bottom"></div>
+            <div className='square left-top' />
+            <div className='square right-top' />
+            <div className='circle left-bottom' />
+            <div className='circle right-bottom' />
             <nav className='main__header hidden'>
               <h1>Pokemon Characters</h1>
             </nav>
