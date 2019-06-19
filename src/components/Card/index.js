@@ -4,7 +4,6 @@ import './styles.scss';
 
 function Card(props) {
   const { name, types, url, id, evolution } = props;
-  //console.log('Card: ', pokemonEvol);
 
   return (
     <Fragment>
@@ -24,8 +23,7 @@ function Card(props) {
           })}
         </ul>
 
-        {!evolution.evolves_from_species
-        ? (
+        {!evolution.evolves_from_species ? (
           ''
         ) : (
           <p className='list__evolution'>
@@ -40,7 +38,9 @@ function Card(props) {
 Card.propTypes = {
   name: PropTypes.string.isRequired,
   types: PropTypes.array.isRequired,
-  id: PropTypes.number.isRequired
+  id: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
+  evolution: PropTypes.object.isRequired
 };
 
 export default Card;

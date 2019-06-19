@@ -28,14 +28,12 @@ function CardList(props) {
           })
         )}
       </ul>
-      <ul />
     </Fragment>
   );
 }
 
 CardList.propTypes = {
   pokemonData: PropTypes.array.isRequired
-  //pokemonDataSpecies: PropTypes.array.isRequired
 };
 
 export default CardList;
