@@ -5,6 +5,7 @@ import Card from '../Card';
 
 function CardList(props) {
   const { pokemonData } = props;
+
   return (
     <Fragment>
       {/* <p>Resultados: {pokemonData.length}</p> */}
@@ -16,23 +17,25 @@ function CardList(props) {
             return (
               <li className='list__li' key={pokemon.id} id={pokemon.id}>
                 <Card
-                  pokemonData={pokemonData}
                   name={pokemon.name}
                   types={pokemon.types}
                   url={pokemon.sprites.front_default}
                   id={pokemon.id}
+                  evolution={pokemon.newDataSpec.pokeSpecie}
                 />
               </li>
             );
           })
         )}
       </ul>
+      <ul />
     </Fragment>
   );
 }
 
 CardList.propTypes = {
   pokemonData: PropTypes.array.isRequired
+  //pokemonDataSpecies: PropTypes.array.isRequired
 };
 
 export default CardList;

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 function Card(props) {
-  const { pokemonData, name, types, url, id } = props;
+  const { name, types, url, id, evolution } = props;
+  //console.log('Card: ', pokemonEvol);
+
   return (
     <Fragment>
       <div className='list__up'>
@@ -21,13 +23,20 @@ function Card(props) {
             );
           })}
         </ul>
+        <p className='list__evolution'>
+          {!evolution.evolves_from_species
+            ? ''
+            : 'Evoluciona de: ' + evolution.evolves_from_species.name}
+        </p>
       </div>
     </Fragment>
   );
 }
 
 Card.propTypes = {
-  pokemonData: PropTypes.array.isRequired
+  name: PropTypes.string.isRequired,
+  types: PropTypes.array.isRequired,
+  id: PropTypes.number.isRequired
 };
 
 export default Card;

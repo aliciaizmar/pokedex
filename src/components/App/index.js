@@ -10,37 +10,34 @@ class App extends React.Component {
 
     this.state = {
       pokemonData: [],
-      pokemonDataEvol: [],
+      //pokemonDataSpecies: [],
       isFetching: true,
       searchName: ''
     };
   }
 
   fetchPokemons() {
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=25')
-      .then(response => response.json())
+    fetchService()
       .then(data =>
         data.results.forEach(item => {
           const newUrl = item.url;
-          //console.log(newUrl);
 
           fetch(newUrl)
             .then(response => response.json())
             .then(newData => {
-              const dataEvol = newData.species.url;
-              //console.log(dataEvol);
+              const dataSpec = newData.species.url;
 
-              fetch(dataEvol)
+              fetch(dataSpec)
                 .then(response => response.json())
-                .then(newDataEvol => {
-                  //console.log(newDataEvol)
+                .then(newDataSpec => {
+                  //add new item to the json
+                  newData.newDataSpec = { 
+                    ...newData.newDataSpec, 
+                    pokeSpecie: newDataSpec 
+                  };
                   this.setState(prevState => {
                     return {
                       pokemonData: [...prevState.pokemonData, newData],
-                      pokemonDataEvol: [
-                        ...prevState.pokemonDataEvol,
-                        newDataEvol
-                      ],
                       isFetching: false
                     };
                   });
@@ -58,8 +55,8 @@ class App extends React.Component {
   };
 
   filterData = () => {
-    const { pokemonData, searchName, pokemonDataEvol } = this.state;
-    console.log(pokemonDataEvol);
+    const { pokemonData, searchName } = this.state;
+
     return pokemonData
       .filter(item => {
         return searchName.length >= 3
@@ -95,7 +92,9 @@ class App extends React.Component {
                 searchName={searchName}
                 filterByName={this.handlerSearchByName}
               />
-              <CardList pokemonData={this.filterData()} />
+              <CardList
+                pokemonData={this.filterData()}
+              />
             </main>
           </Fragment>
         )}
