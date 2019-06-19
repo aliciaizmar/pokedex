@@ -23,11 +23,15 @@ function Card(props) {
             );
           })}
         </ul>
-        <p className='list__evolution'>
-          {!evolution.evolves_from_species
-            ? ''
-            : 'Evoluciona de: ' + evolution.evolves_from_species.name}
-        </p>
+
+        {!evolution.evolves_from_species
+        ? (
+          ''
+        ) : (
+          <p className='list__evolution'>
+            Evoluciona de <span>{evolution.evolves_from_species.name}</span>
+          </p>
+        )}
       </div>
     </Fragment>
   );
