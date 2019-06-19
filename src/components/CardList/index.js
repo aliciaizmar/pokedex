@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 import Card from '../Card';
 
@@ -16,6 +17,7 @@ function CardList(props) {
           pokemonData.map(pokemon => {
             return (
               <li className='list__li' key={pokemon.id} id={pokemon.id}>
+                <Link to={`/pokemon/${pokemon.id}`}>
                 <Card
                   name={pokemon.name}
                   types={pokemon.types}
@@ -23,7 +25,9 @@ function CardList(props) {
                   id={pokemon.id}
                   evolution={pokemon.newDataSpec.pokeSpecie}
                 />
+                </Link>
               </li>
+              
             );
           })
         )}
