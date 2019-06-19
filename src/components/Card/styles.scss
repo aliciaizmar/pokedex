@@ -50,10 +50,6 @@
   }
   @media all and (min-width: 768px) {
     &__data {
-      // display: grid;
-      // grid-template-rows: 1fr;
-      // grid-template-columns: 1fr 1fr;
-      // grid-gap: 25px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -63,13 +59,6 @@
       margin-right: 20px;
     }
   }
-
-  // @media all and (min-width: 1000px) {
-  //   // &__data {
-  //   //   // grid-template-rows: 1fr;
-  //   //   // grid-template-columns: 1fr 1fr 1fr 1fr;
-  //   // }
-  // }
 }
 .nouser {
   font-size: 14px;
