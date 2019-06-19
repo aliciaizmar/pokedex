@@ -1,16 +1,5 @@
 @import '../../stylesheets/variables';
 .list {
-  &__data {
-    text-align: center;
-  }
-  &__li {
-    box-shadow: 1px 1px 10px $colorGreyStone;
-    background: $colorWhiteSnow;
-    margin-bottom: 25px;
-    text-align: left;
-    position: relative;
-    padding-bottom: 40px;
-  }
   &__img {
     margin: 0 auto;
   }
@@ -64,17 +53,7 @@
       font-weight: bold;
     }
   }
-  @media all and (min-width: 768px) {
-    &__data {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    &__li {
-      width: 220px;
-      margin-right: 20px;
-    }
-  }
+
 }
 .nouser {
   font-size: 14px;
