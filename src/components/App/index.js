@@ -10,27 +10,44 @@ class App extends React.Component {
 
     this.state = {
       pokemonData: [],
+      pokemonDataEvol: [],
       isFetching: true,
       searchName: ''
     };
   }
 
   fetchPokemons() {
-    fetchService().then(data =>
-      data.results.forEach(item => {
-        const newUrl = item.url;
-        fetch(newUrl)
-          .then(response => response.json())
-          .then(newData => {
-            this.setState(prevState => {
-              return {
-                pokemonData: [...prevState.pokemonData, newData],
-                isFetching: false
-              };
+    fetch('https://pokeapi.co/api/v2/pokemon/?limit=25')
+      .then(response => response.json())
+      .then(data =>
+        data.results.forEach(item => {
+          const newUrl = item.url;
+          //console.log(newUrl);
+
+          fetch(newUrl)
+            .then(response => response.json())
+            .then(newData => {
+              const dataEvol = newData.species.url;
+              //console.log(dataEvol);
+
+              fetch(dataEvol)
+                .then(response => response.json())
+                .then(newDataEvol => {
+                  //console.log(newDataEvol)
+                  this.setState(prevState => {
+                    return {
+                      pokemonData: [...prevState.pokemonData, newData],
+                      pokemonDataEvol: [
+                        ...prevState.pokemonDataEvol,
+                        newDataEvol
+                      ],
+                      isFetching: false
+                    };
+                  });
+                });
             });
-          });
-      })
-    );
+        })
+      );
   }
 
   handlerSearchByName = event => {
@@ -41,7 +58,8 @@ class App extends React.Component {
   };
 
   filterData = () => {
-    const { pokemonData, searchName } = this.state;
+    const { pokemonData, searchName, pokemonDataEvol } = this.state;
+    console.log(pokemonDataEvol);
     return pokemonData
       .filter(item => {
         return searchName.length >= 3
