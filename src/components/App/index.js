@@ -69,6 +69,14 @@ class App extends React.Component {
       });
   };
 
+  //Buscar id: en CardDetail iba cambiando el pokemon al actualizar
+  getId = id => {
+    const { pokemonData } = this.state;
+    return pokemonData.find(pokemon => {
+      return pokemon.id === parseInt(id);
+    });
+  };
+
   componentDidMount() {
     this.fetchPokemons();
   }
@@ -89,24 +97,30 @@ class App extends React.Component {
               <h1>Pokemon Characters</h1>
             </nav>
             <main className='main__content'>
-              <Filter
-                searchName={searchName}
-                filterByName={this.handlerSearchByName}
-              />
               <Switch>
                 <Route
                   exact
                   path='/'
-                  render={() => <CardList pokemonData={this.filterData()} />}
+                  render={() => (
+                    <Fragment>
+                      <Filter
+                        searchName={searchName}
+                        filterByName={this.handlerSearchByName}
+                      />
+                      <CardList pokemonData={this.filterData()} />
+                    </Fragment>
+                  )}
                 />
                 <Route
                   path='/pokemon/:id'
-                  render={routerProps => (
-                    <CardDetail
-                      match={routerProps.match}
-                      pokemonData={pokemonData}
-                    />
-                  )}
+                  render={routerProps => {
+                    return (
+                      <CardDetail
+                        match={this.getId(routerProps.match.params.id)}
+                        pokemonData={pokemonData}
+                      />
+                    );
+                  }}
                 />
               </Switch>
             </main>

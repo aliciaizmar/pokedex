@@ -18,16 +18,15 @@ function CardList(props) {
             return (
               <li className='list__li' key={pokemon.id} id={pokemon.id}>
                 <Link to={`/pokemon/${pokemon.id}`}>
-                <Card
-                  name={pokemon.name}
-                  types={pokemon.types}
-                  url={pokemon.sprites.front_default}
-                  id={pokemon.id}
-                  evolution={pokemon.newDataSpec.pokeSpecie}
-                />
+                  <Card
+                    name={pokemon.name}
+                    types={pokemon.types}
+                    url={pokemon.sprites.front_default}
+                    id={pokemon.id}
+                    evolution={pokemon.newDataSpec.pokeSpecie}
+                  />
                 </Link>
               </li>
-              
             );
           })
         )}

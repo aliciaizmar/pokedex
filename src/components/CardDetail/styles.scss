@@ -1,0 +1,22 @@
+@import '../../stylesheets/variables';
+.detail {
+  &__main {
+    background: $colorWhiteSnow;
+    padding: 20px;
+    text-align: left;
+  }
+  &__profile-title {
+    background: $colorPurpleGrape;
+    color: $colorWhiteSnow;
+    padding: 5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
+  &__profile-list--ability:first-child:before {
+    content: none;
+  }
+  &__profile-list--ability:before {
+    content: ', ';
+  }
+}
