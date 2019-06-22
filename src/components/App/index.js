@@ -27,21 +27,33 @@ class App extends React.Component {
           .then(response => response.json())
           .then(newData => {
             const dataSpec = newData.species.url;
+            
 
             fetch(dataSpec)
               .then(response => response.json())
               .then(newDataSpec => {
-                //add new item to the json
-                newData.newDataSpec = {
-                  ...newData.newDataSpec,
-                  pokeSpecie: newDataSpec
-                };
-                this.setState(prevState => {
-                  return {
-                    pokemonData: [...prevState.pokemonData, newData],
-                    isFetching: false
-                  };
-                });
+                const dataEvol = newDataSpec.evolution_chain.url;
+
+                fetch(dataEvol)
+                  .then(response => response.json())
+                  .then(newDataEvol => {
+
+                    //add new item to the json
+                    newData.newDataSpec = {
+                      ...newData.newDataSpec,
+                      pokeSpecie: {
+                        ...newDataSpec,
+                        //modify this key
+                        evolution_chain: newDataEvol
+                      }
+                    };
+                    this.setState(prevState => {
+                      return {
+                        pokemonData: [...prevState.pokemonData, newData],
+                        isFetching: false
+                      };
+                    });
+                  });
               });
           });
       })

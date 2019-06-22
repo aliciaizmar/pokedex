@@ -11,12 +11,14 @@
     padding: 5px;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 10px;
   }
   &__profile-list--ability:first-child:before {
     content: none;
   }
   &__profile-list--ability:before {
     content: ', ';
+  }
+  &__profile-list {
+    margin: 20px 0;
   }
 }

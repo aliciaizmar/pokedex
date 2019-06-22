@@ -5,6 +5,7 @@ import './styles.scss';
 
 function CardDetail(props) {
   const { match } = props;
+
   return (
     <Fragment>
       <Link to='/'>
@@ -39,6 +40,43 @@ function CardDetail(props) {
                   })}
                 </li>
               </ul>
+            </div>
+            <div className='detail__evolution'>
+              <span className='detail__profile-title'>Evolución</span>
+              <span>
+                {!match.newDataSpec.pokeSpecie.evolves_from_species
+                  ? ''
+                  : `Evoluciona de: ${
+                      match.newDataSpec.pokeSpecie.evolves_from_species.name
+                    }`}
+              </span>
+
+              <span>
+                {!match.newDataSpec.pokeSpecie.evolution_chain.chain.evolves_to
+                  ? ''
+                  : match.newDataSpec.pokeSpecie.evolution_chain.chain.evolves_to.map(
+                      item => {
+                        if (match.name === item.species.name) {
+                          return ` Evoluciona a bis: ${item.evolves_to.map(
+                            itemEvol => {
+                              return itemEvol.species.name;
+                            }
+                          )}`;
+                        } else {
+                          if (
+                            !match.newDataSpec.pokeSpecie.evolves_from_species
+                          ) {
+                            return `Evoluciona all: ${item.species.name}`;
+                          } else if (
+                            match.newDataSpec.pokeSpecie.evolves_from_species
+                              .name === item.species.name
+                          ) {
+                            return '';
+                          }
+                        }
+                      }
+                    )}
+              </span>
             </div>
           </div>
         </Fragment>
