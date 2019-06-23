@@ -10,6 +10,19 @@ import './styles.scss';
 function CardDetail(props) {
   const { match } = props;
 
+  function update() { 
+    var width = 1; 
+    var identity = setInterval(scene, 10); 
+    function scene() { 
+      if (width >= 100) { 
+        clearInterval(identity); 
+      } else { 
+        width++;  
+        width = width + '%';  
+      } 
+    } 
+  } 
+
   return (
     <Fragment>
       <Link to='/' className='link'>
@@ -31,6 +44,21 @@ function CardDetail(props) {
                     alt={match.sprites.front_default}
                   />
                   <h3 className='detail__profile-list--name'>{match.name}</h3>
+                </div>
+                <div className='detail__profile-stats'>
+                  <ul className='detail__profile-stats-list'>
+                    {match.stats.map((item, ind) => {
+                      return (
+                        <li key={ind}>
+                          <span>{item.stat.name}</span>
+                          <span className='detail__profile-stats--number'>
+                            <span style={{width: `${item.base_stat}` + '%'}}>{item.base_stat}</span>
+                          </span>
+                        </li>
+                        
+                      );
+                    })}
+                  </ul>
                 </div>
                 {/* <div>
                   {match.newDataSpec.pokeSpecie.flavor_text_entries
@@ -78,7 +106,9 @@ function CardDetail(props) {
                   <span className='detail__profile-name'>
                     {!match.newDataSpec.pokeSpecie.evolves_from_species
                       ? ''
-                      : `Evoluciona de: ${match.newDataSpec.pokeSpecie.evolves_from_species.name}`}
+                      : `Evoluciona de: ${
+                          match.newDataSpec.pokeSpecie.evolves_from_species.name
+                        }`}
                   </span>
 
                   <div className='detail__evolution-current'>
@@ -99,7 +129,7 @@ function CardDetail(props) {
                               return item.evolves_to.map(itemEvol => {
                                 return itemEvol === 0
                                   ? ''
-                                  : `Evoluciona a: ${itemEvol.species.name}` ;
+                                  : `Evoluciona a: ${itemEvol.species.name}`;
                               });
                             } else {
                               if (
