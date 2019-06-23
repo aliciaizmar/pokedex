@@ -10,19 +10,6 @@ import './styles.scss';
 function CardDetail(props) {
   const { match } = props;
 
-  function update() { 
-    var width = 1; 
-    var identity = setInterval(scene, 10); 
-    function scene() { 
-      if (width >= 100) { 
-        clearInterval(identity); 
-      } else { 
-        width++;  
-        width = width + '%';  
-      } 
-    } 
-  } 
-
   return (
     <Fragment>
       <Link to='/' className='link'>
