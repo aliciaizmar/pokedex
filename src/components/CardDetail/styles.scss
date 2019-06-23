@@ -7,8 +7,10 @@
     text-align: left;
     margin-top: 80px;
     width: 92%;
-    min-height: 500px;
+    max-height: 350px;
     box-shadow: 1px 1px 20px $colorDarkBatman;
+    overflow-y: scroll;  
+
     h3 {
       text-transform: capitalize;
     }
@@ -16,6 +18,12 @@
   &__pokemon {
     display: flex;
     align-items: center;
+    flex-direction: column;
+  }
+  &__pokemon-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
   }
   &__profile-title {
     background: $colorPurpleGrape;
@@ -38,7 +46,7 @@
     margin-bottom: 20px;
   }
   &__profile-list--name {
-    font-size: 30px;
+    font-size: 20px;
   }
   &__profile-main {
     display: flex;
@@ -59,13 +67,41 @@
   &__profile-item {
     display: flex;
     align-items: center;
-    margin: 0 20px;
+    margin: 20px;
+    flex-direction: column;
   }
   &__photos-list {
     display: flex;
   }
+  &__photos-list img {
+    width: 90%;
+  }
   &__profile-text {
     margin-bottom: 10px;
+  }
+  &__profile-stats--number {
+    background: #ededed;
+    width: 100%;
+    display: inline-block;
+
+    span {
+      background: rgb(69, 120, 237);
+      color: $colorWhiteSnow;
+      padding: 5px;
+      display: block;
+    }
+  }
+  &__profile-stats {
+    width: 300px;
+  }
+  &__profile-stats-list {
+    width: 100%;
+    font-size: 12px;
+    padding-left: 20px;
+    text-transform: capitalize;
+  }
+  &__profile-stats-list li {
+    margin-bottom: 5px;
   }
 }
 .icon-arrow {
@@ -119,5 +155,38 @@
     &__main {
       max-width: 600px;
     }
+    &__evolution-current,
+    &__profile-item {
+      margin: 0 20px;
+      flex-direction: row;
+    }
+    &__profile-list--name {
+      font-size: 30px;
+    }
+    &__profile-stats-list {
+      width: 90%;
+      padding: 20px;
+    }
+    &__main {
+      max-height: 900px;
+      overflow-y: hidden;
+    }
   }
+}
+@media all and (min-width: 1200px) {
+  &__main {
+    max-height: auto;
+  }
+}
+
+.detail__main {
+  animation: animation-name 1s linear;
+}
+@keyframes animation-name {
+  0% {
+   transform: translateY(100px);
+ }
+ 100% {
+   transform: translateY(0);
+ }
 }
