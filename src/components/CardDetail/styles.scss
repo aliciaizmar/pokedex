@@ -7,10 +7,9 @@
     text-align: left;
     margin-top: 80px;
     width: 92%;
-    max-height: 500px;
+    max-height: 350px;
     box-shadow: 1px 1px 20px $colorDarkBatman;
-    overflow-y: scroll;
-  
+    overflow-y: scroll;  
 
     h3 {
       text-transform: capitalize;
@@ -73,6 +72,9 @@
   }
   &__photos-list {
     display: flex;
+  }
+  &__photos-list img {
+    width: 90%;
   }
   &__profile-text {
     margin-bottom: 10px;
