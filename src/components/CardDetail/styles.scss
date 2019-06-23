@@ -1,9 +1,21 @@
 @import '../../stylesheets/variables';
+
 .detail {
   &__main {
     background: $colorWhiteSnow;
     padding: 20px;
     text-align: left;
+    margin-top: 80px;
+    width: 92%;
+    min-height: 500px;
+    box-shadow: 1px 1px 20px $colorDarkBatman;
+    h3 {
+      text-transform: capitalize;
+    }
+  }
+  &__pokemon {
+    display: flex;
+    align-items: center;
   }
   &__profile-title {
     background: $colorPurpleGrape;
@@ -11,14 +23,104 @@
     padding: 5px;
     text-transform: uppercase;
     display: block;
+    margin-bottom: 10px;
   }
-  &__profile-list--ability:first-child:before {
-    content: none;
+  &__profile-list--ability:last-child:after {
+    content: '';
   }
-  &__profile-list--ability:before {
+  &__profile-list--ability:after {
     content: ', ';
   }
-  &__profile-list {
-    margin: 20px 0;
+  &__profile-list--ability:before {
+    content: ' ';
+  }
+  &__profile-content {
+    margin-bottom: 20px;
+  }
+  &__profile-list--name {
+    font-size: 30px;
+  }
+  &__profile-main {
+    display: flex;
+    align-items: center;
+  }
+  &__profile-list li {
+    display: inline-block;
+    margin-right: 20px;
+    width: 100%;
+  }
+  &__profile-list li strong {
+    width: 50%;
+  }
+  &__profile-list li:last-child {
+    margin-right: 0;
+  }
+  &__profile-name {
+    text-transform: uppercase;
+  }
+  &__evolution-current,
+  &__profile-item {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+  }
+  &__photos-list {
+    display: flex;
+  }
+  &__profile-text {
+    margin-bottom: 10px;
+  }
+}
+.icon-arrow {
+  font-size: 28px;
+}
+.link {
+  z-index: 999;
+  text-align: left;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.back {
+  &__link {
+    text-align: left;
+    background: #2e1258;
+    color: $colorWhiteSnow;
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: all 0.15s ease-out;
+  }
+  &__btn {
+    font-size: 28px;
+    line-height: 0.1;
+  }
+}
+.back__link:hover {
+  background: #8872ac;
+  transition: all 0.1s ease-out;
+}
+.detail__content {
+  //background: #b6a8cd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(45deg, #e0c068 50%, $colorPurpleGrape 50%);
+}
+
+@media all and (min-width: 768px) {
+  .detail {
+    &__main {
+      max-width: 600px;
+    }
   }
 }
