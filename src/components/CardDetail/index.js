@@ -78,16 +78,16 @@ function CardDetail(props) {
                   <span className='detail__profile-name'>
                     {!match.newDataSpec.pokeSpecie.evolves_from_species
                       ? ''
-                      : match.newDataSpec.pokeSpecie.evolves_from_species.name}
+                      : `Evoluciona de: ${match.newDataSpec.pokeSpecie.evolves_from_species.name}`}
                   </span>
 
                   <div className='detail__evolution-current'>
-                    <TiArrowLeftThick className='icon-arrow' />
+                    {/* <TiArrowLeftThick className='icon-arrow' /> */}
                     <img
                       src={match.sprites.front_shiny}
                       alt={match.sprites.front_shiny}
                     />
-                    <TiArrowRightThick className='icon-arrow' />
+                    {/* <TiArrowRightThick className='icon-arrow' /> */}
                   </div>
                   <span className='detail__profile-name'>
                     {!match.newDataSpec.pokeSpecie.evolution_chain.chain
@@ -99,14 +99,14 @@ function CardDetail(props) {
                               return item.evolves_to.map(itemEvol => {
                                 return itemEvol === 0
                                   ? ''
-                                  : ` ${itemEvol.species.name}`;
+                                  : `Evoluciona a: ${itemEvol.species.name}` ;
                               });
                             } else {
                               if (
                                 !match.newDataSpec.pokeSpecie
                                   .evolves_from_species
                               ) {
-                                return ` ${item.species.name}`;
+                                return `Evoluciona a: ${item.species.name}`;
                               } else if (
                                 match.newDataSpec.pokeSpecie
                                   .evolves_from_species.name ===
