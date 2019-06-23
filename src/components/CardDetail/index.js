@@ -1,27 +1,10 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  TiArrowRightThick,
-  TiChevronLeft,
-  TiArrowLeftThick
-} from 'react-icons/ti';
+import { TiChevronLeft } from 'react-icons/ti';
 import './styles.scss';
 
 function CardDetail(props) {
   const { match } = props;
-
-  function update() { 
-    var width = 1; 
-    var identity = setInterval(scene, 10); 
-    function scene() { 
-      if (width >= 100) { 
-        clearInterval(identity); 
-      } else { 
-        width++;  
-        width = width + '%';  
-      } 
-    } 
-  } 
 
   return (
     <Fragment>
@@ -52,26 +35,15 @@ function CardDetail(props) {
                         <li key={ind}>
                           <span>{item.stat.name}</span>
                           <span className='detail__profile-stats--number'>
-                            <span style={{width: `${item.base_stat}` + '%'}}>{item.base_stat}</span>
+                            <span style={{ width: `${item.base_stat}` + '%' }}>
+                              {item.base_stat}
+                            </span>
                           </span>
                         </li>
-                        
                       );
                     })}
                   </ul>
                 </div>
-                {/* <div>
-                  {match.newDataSpec.pokeSpecie.flavor_text_entries
-                    .map((item, ind) => {
-                      return item.language.name === 'es' ? (
-                        <p className='detail__profile-text' key={ind}>
-                          {item.flavor_text}
-                        </p>
-                      ) : (
-                        ''
-                      );
-                    })}
-                </div> */}
               </div>
               <div className='detail__profile'>
                 <span className='detail__profile-title'>Características</span>
