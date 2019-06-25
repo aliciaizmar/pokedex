@@ -1,0 +1,39 @@
+@import '../../stylesheets/variables';
+
+.detail {
+  &__profile-title {
+    background: $colorPurpleGrape;
+    color: $colorWhiteSnow;
+    padding: 5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
+  &__profile-main {
+    display: flex;
+    align-items: center;
+  }
+  &__profile-list li {
+    display: inline-block;
+    margin-right: 20px;
+    width: 100%;
+  }
+  &__profile-list li strong {
+    width: 50%;
+  }
+  &__profile-list li:last-child {
+    margin-right: 0;
+  }
+  &__profile-list--ability:last-child:after {
+    content: '';
+  }
+  &__profile-list--ability:after {
+    content: ', ';
+  }
+  &__profile-list--ability:before {
+    content: ' ';
+  }
+  &__profile-content {
+    margin-bottom: 20px;
+  }
+}

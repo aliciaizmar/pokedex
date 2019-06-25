@@ -1,11 +1,9 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  TiArrowRightThick,
-  TiChevronLeft,
-  TiArrowLeftThick
-} from 'react-icons/ti';
+import { TiChevronLeft } from 'react-icons/ti';
 import './styles.scss';
+import CardDetailInfo from '../CardDetailInfo';
+import CardDetailProfile from '../CardDetailProfile';
 
 function CardDetail(props) {
   const { match } = props;
@@ -24,69 +22,19 @@ function CardDetail(props) {
         <Fragment key={match.id}>
           <div className='detail__content'>
             <div className='detail__main'>
-              <div className='detail__pokemon-info'>
-                <div className='detail__pokemon'>
-                  <img
-                    src={match.sprites.front_default}
-                    alt={match.sprites.front_default}
-                  />
-                  <h3 className='detail__profile-list--name'>{match.name}</h3>
-                </div>
-                <div className='detail__profile-stats'>
-                  <ul className='detail__profile-stats-list'>
-                    {match.stats.map((item, ind) => {
-                      return (
-                        <li key={ind}>
-                          <span>{item.stat.name}</span>
-                          <span className='detail__profile-stats--number'>
-                            <span style={{width: `${item.base_stat}` + '%'}}>{item.base_stat}</span>
-                          </span>
-                        </li>
-                        
-                      );
-                    })}
-                  </ul>
-                </div>
-                {/* <div>
-                  {match.newDataSpec.pokeSpecie.flavor_text_entries
-                    .map((item, ind) => {
-                      return item.language.name === 'es' ? (
-                        <p className='detail__profile-text' key={ind}>
-                          {item.flavor_text}
-                        </p>
-                      ) : (
-                        ''
-                      );
-                    })}
-                </div> */}
-              </div>
-              <div className='detail__profile'>
-                <span className='detail__profile-title'>Características</span>
-                <div className='detail__profile-content'>
-                  <div className='detail__profile-main' />
-                  <ul className='detail__profile-list'>
-                    <li>
-                      <strong>Altura:</strong> 0.{match.height}m
-                    </li>
-                    <li>
-                      <strong>Peso:</strong> {match.weight / 10}kg
-                    </li>
-                    <li>
-                      <strong>Habilidades:</strong>
-                      {match.abilities.map((item, ind) => {
-                        return (
-                          <span
-                            className='detail__profile-list--ability'
-                            key={ind}
-                          >
-                            {item.ability.name}
-                          </span>
-                        );
-                      })}
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <CardDetailInfo
+                src={match.sprites.front_default}
+                alt={match.sprites.front_default}
+                name={match.name}
+                match={match}
+              />
+
+              <CardDetailProfile
+                match={match}
+                weight={match.weight}
+                height={match.height}
+              />
+
               <div className='detail__evolution'>
                 <span className='detail__profile-title'>Evolución</span>
                 <div className='detail__profile-item'>
@@ -99,12 +47,10 @@ function CardDetail(props) {
                   </span>
 
                   <div className='detail__evolution-current'>
-                    {/* <TiArrowLeftThick className='icon-arrow' /> */}
                     <img
                       src={match.sprites.front_shiny}
                       alt={match.sprites.front_shiny}
                     />
-                    {/* <TiArrowRightThick className='icon-arrow' /> */}
                   </div>
                   <span className='detail__profile-name'>
                     {!match.newDataSpec.pokeSpecie.evolution_chain.chain

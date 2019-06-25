@@ -7,62 +7,11 @@
     text-align: left;
     margin-top: 80px;
     width: 92%;
-    max-height: 350px;
+    max-height: 450px;
     box-shadow: 1px 1px 20px $colorDarkBatman;
-    overflow-y: scroll;  
+    overflow-y: scroll;
+  }
 
-    h3 {
-      text-transform: capitalize;
-    }
-  }
-  &__pokemon {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  &__pokemon-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  &__profile-title {
-    background: $colorPurpleGrape;
-    color: $colorWhiteSnow;
-    padding: 5px;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 10px;
-  }
-  &__profile-list--ability:last-child:after {
-    content: '';
-  }
-  &__profile-list--ability:after {
-    content: ', ';
-  }
-  &__profile-list--ability:before {
-    content: ' ';
-  }
-  &__profile-content {
-    margin-bottom: 20px;
-  }
-  &__profile-list--name {
-    font-size: 20px;
-  }
-  &__profile-main {
-    display: flex;
-    align-items: center;
-  }
-  &__profile-list li {
-    display: inline-block;
-    margin-right: 20px;
-    width: 100%;
-  }
-  &__profile-list li strong {
-    width: 50%;
-  }
-  &__profile-list li:last-child {
-    margin-right: 0;
-  }
   &__evolution-current,
   &__profile-item {
     display: flex;
@@ -78,30 +27,6 @@
   }
   &__profile-text {
     margin-bottom: 10px;
-  }
-  &__profile-stats--number {
-    background: #ededed;
-    width: 100%;
-    display: inline-block;
-
-    span {
-      background: rgb(69, 120, 237);
-      color: $colorWhiteSnow;
-      padding: 5px;
-      display: block;
-    }
-  }
-  &__profile-stats {
-    width: 300px;
-  }
-  &__profile-stats-list {
-    width: 100%;
-    font-size: 12px;
-    padding-left: 20px;
-    text-transform: capitalize;
-  }
-  &__profile-stats-list li {
-    margin-bottom: 5px;
   }
 }
 .icon-arrow {
@@ -184,9 +109,9 @@
 }
 @keyframes animation-name {
   0% {
-   transform: translateY(100px);
- }
- 100% {
-   transform: translateY(0);
- }
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
