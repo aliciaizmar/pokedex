@@ -4,6 +4,7 @@ import { TiChevronLeft } from 'react-icons/ti';
 import './styles.scss';
 import CardDetailInfo from '../CardDetailInfo';
 import CardDetailProfile from '../CardDetailProfile';
+import CardDetailImg from './CardDetailImg';
 
 function CardDetail(props) {
   const { match } = props;
@@ -83,7 +84,8 @@ function CardDetail(props) {
                   </span>
                 </div>
               </div>
-              <div className='detail__photos'>
+              <CardDetailImg match={match} />
+              {/* <div className='detail__photos'>
                 <span className='detail__profile-title'>Fotos</span>
                 <ul className='detail__photos-list'>
                   <li>
@@ -111,7 +113,7 @@ function CardDetail(props) {
                     />
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </Fragment>
