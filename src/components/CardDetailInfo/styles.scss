@@ -1,0 +1,57 @@
+@import '../../stylesheets/variables';
+
+.detail {
+  &__main {
+    h3 {
+      text-transform: capitalize;
+    }
+  }
+  &__pokemon-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  &__pokemon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__profile-list--name {
+    font-size: 20px;
+  }
+  &__profile-stats {
+    width: 300px;
+  }
+  &__profile-stats-list {
+    width: 100%;
+    font-size: 12px;
+    padding-left: 20px;
+    text-transform: capitalize;
+  }
+  &__profile-stats-list li {
+    margin-bottom: 5px;
+  }
+  &__profile-stats--number {
+    background: #ededed;
+    width: 100%;
+    display: inline-block;
+
+    span {
+      background: rgb(69, 120, 237);
+      color: $colorWhiteSnow;
+      padding: 5px;
+      display: block;
+    }
+  }
+}
+@media all and (min-width: 768px) {
+  .detail {
+    &__profile-list--name {
+      font-size: 30px;
+    }
+    &__profile-stats-list {
+      width: 90%;
+      padding: 20px;
+    }
+  }
+}

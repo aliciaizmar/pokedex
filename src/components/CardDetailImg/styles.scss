@@ -1,0 +1,8 @@
+.detail {
+  &__photos-list {
+    display: flex;
+  }
+  &__photos-list img {
+    width: 90%;
+  }
+}

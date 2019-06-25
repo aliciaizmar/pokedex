@@ -12,7 +12,6 @@ class App extends React.Component {
 
     this.state = {
       pokemonData: [],
-      //pokemonDataSpecies: [],
       isFetching: true,
       searchName: ''
     };
@@ -26,8 +25,7 @@ class App extends React.Component {
         fetch(newUrl)
           .then(response => response.json())
           .then(newData => {
-            const dataSpec = newData.species.url;
-            
+            const dataSpec = newData.species.url;            
 
             fetch(dataSpec)
               .then(response => response.json())
