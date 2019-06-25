@@ -4,8 +4,8 @@ import { TiChevronLeft } from 'react-icons/ti';
 import './styles.scss';
 import CardDetailInfo from '../CardDetailInfo';
 import CardDetailProfile from '../CardDetailProfile';
-import CardDetailImg from './CardDetailImg';
-import CardDetailEvolution from './CardDetailEvolution/index';
+import CardDetailImg from '../CardDetailImg';
+import CardDetailEvolution from '../CardDetailEvolution/index';
 
 function CardDetail(props) {
   const { match } = props;

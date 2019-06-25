@@ -7,9 +7,13 @@
     text-align: left;
     margin-top: 80px;
     width: 92%;
-    max-height: 450px;
+    // max-height: 450px;
     box-shadow: 1px 1px 20px $colorDarkBatman;
+    margin-bottom: 50px;
     overflow-y: scroll;
+    top: 0;
+    bottom: 0;
+    position: absolute;
   }
 
   &__profile-text {
@@ -65,33 +69,21 @@
   .detail {
     &__main {
       max-width: 600px;
-    }
-    &__evolution-current,
-    &__profile-item {
-      margin: 0 20px;
-      flex-direction: row;
-    }
-    &__profile-list--name {
-      font-size: 30px;
-    }
-    &__profile-stats-list {
-      width: 90%;
-      padding: 20px;
-    }
-    &__main {
-      max-height: 900px;
-      overflow-y: hidden;
+      // max-height: 600px;
     }
   }
 }
 @media all and (min-width: 1200px) {
-  &__main {
-    max-height: auto;
+  .detail {
+    &__main {
+      // max-height: 900px;
+      overflow-y: hidden;
+    }
   }
 }
 
 .detail__main {
-  animation: animation-name 1s linear;
+  animation: animation-name 0.5s linear;
 }
 @keyframes animation-name {
   0% {

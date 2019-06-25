@@ -44,3 +44,14 @@
     }
   }
 }
+@media all and (min-width: 768px) {
+  .detail {
+    &__profile-list--name {
+      font-size: 30px;
+    }
+    &__profile-stats-list {
+      width: 90%;
+      padding: 20px;
+    }
+  }
+}
