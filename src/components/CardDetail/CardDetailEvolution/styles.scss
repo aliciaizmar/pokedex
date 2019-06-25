@@ -1,1 +1,9 @@
-// .detail {}
+.detail {
+  &__evolution-current,
+  &__profile-item {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    flex-direction: column;
+  }
+}

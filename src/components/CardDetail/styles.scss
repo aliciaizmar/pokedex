@@ -12,14 +12,6 @@
     overflow-y: scroll;
   }
 
-  &__evolution-current,
-  &__profile-item {
-    display: flex;
-    align-items: center;
-    margin: 20px;
-    flex-direction: column;
-  }
-
   &__profile-text {
     margin-bottom: 10px;
   }
@@ -58,7 +50,6 @@
   transition: all 0.1s ease-out;
 }
 .detail__content {
-  //background: #b6a8cd;
   position: fixed;
   top: 0;
   left: 0;

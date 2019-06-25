@@ -4,8 +4,7 @@ import './styles.scss';
 function CardDetailEvolution(props) {
   const { match } = props;
   const evolutionFrom = match.newDataSpec.pokeSpecie.evolves_from_species;
-  const evolutionTo =
-    match.newDataSpec.pokeSpecie.evolution_chain.chain.evolves_to;
+  const evolutionTo = match.newDataSpec.pokeSpecie.evolution_chain.chain.evolves_to;
 
   return (
     <div className='detail__evolution'>
